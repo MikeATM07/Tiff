@@ -6,7 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0505">
 <title>Tiffany</title>
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap"><style>
   :root {
     --bg:#070404; --text:#f4e9e9; --muted:#b39a9a;
     --blood:#7a0010; --bordeaux:#4a0410; --red:#e3122d; --red2:#ff2a45;
@@ -39,7 +41,7 @@
   .avatar { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; border:3px solid var(--bg); background:#1a0a0c; }
 
   .head { text-align:center; }
-  h1 { margin-top:10px; font-size:23px; font-weight:800; letter-spacing:.5px; line-height:1.15; }
+  h1 { margin:10px 0 16px; font-size:23px; font-weight:800; letter-spacing:.5px; line-height:1.15; }
   h1 span { color:var(--red); }
   .handle { margin:14px 0 0; text-align:center; font-size:12px; color:var(--muted); letter-spacing:.5px; }
   .tag {
@@ -76,9 +78,9 @@
   .dot { width:8px; height:8px; border-radius:50%; background:var(--red2); box-shadow:0 0 10px var(--red2); animation:blink 1.4s ease-in-out infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-  .of-body { position:absolute; left:0; right:0; bottom:0; padding:18px 18px 16px; text-align:center; }
+  .of-body { position:absolute; left:0; right:0; bottom:0; padding:18px 18px 30px; text-align:center; }
   .of-kicker { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--red2); font-weight:800; }
-  .of-title { margin-top:5px; font-size:24px; font-weight:900; line-height:1.1; text-shadow:0 2px 14px rgba(0,0,0,.6); }
+  .of-title { margin-top:5px; font-family:"Cinzel","Trajan Pro",Georgia,serif; font-size:19px; font-weight:700; letter-spacing:2px; text-transform:uppercase; line-height:1.2; text-shadow:0 2px 14px rgba(0,0,0,.6); }
   .of-sub { margin-top:5px; font-size:13px; color:#e9d6d6; }
   .of-btn {
     position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:10px;
@@ -140,10 +142,10 @@
     .avatar-wrap { width:80px; height:80px; }
     h1 { font-size:21px; margin-top:8px; }
     .tag { margin:7px 0 12px; }
-    .of-title { font-size:22px; }
+    .of-title { font-size:18px; }
     .of-sub { font-size:12px; }
   }
-  @media (max-width:380px){ .of-title { font-size:21px; } }
+  @media (max-width:380px){ .of-title { font-size:16px; letter-spacing:1.5px; } }
   @media (prefers-reduced-motion:reduce){ *, body::before { animation:none !important; } }
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="949b9be7-694b-4928-ae67-bcce1cd70064"></script>
@@ -154,15 +156,12 @@
 
   <div class="head">
     <h1>Tiffany <span>🖤</span></h1>
-    <p class="tag">Goddess Tiffany's Domain</p>
   </div>
 
-  <a class="of" href="#" data-umami-event="enter-now" onclick="openGate(event)" aria-label="Enter Mommy's private page">
-    <span class="badge"><span class="dot"></span>18+ · Exclusive</span>
+  <a class="of" href="#" data-umami-event="enter-now" onclick="openGate(event)" aria-label="Enter">
+    <span class="badge"><span class="dot"></span>VIP</span>
     <div class="of-body">
-      <p class="of-kicker">Private access</p>
-      <p class="of-title">Welcome to Mommy's world</p>
-      <p class="of-sub">Come earn your place, good boy</p>
+      <p class="of-title">Just you &amp; Mommy</p>
       <div class="of-btn">
         Enter now
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -186,21 +185,28 @@
 </main>
 
 <!-- 18+ gate -->
-<div id="gate" class="gate" hidden role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div class="gate-box">
-    <p id="gate-title" class="gate-title">18+ only 🔞</p>
-    <p class="gate-text">Mommy's world is for adults only. are you 18+, good boy? 😏</p>
-    <div class="gate-actions">
-      <button class="gate-yes" data-umami-event="click-onlyfans" onclick="enter()">yes, i'm 18+</button>
-      <button class="gate-no" data-umami-event="gate-no" onclick="closeGate()">no, take me back</button>
-    </div>
-  </div>
-</div>
+<div id="gate" class="gate" hidden role="dialog" aria-modal="true"></div>
 
 <script>
   var OF_URL = 'https://onlyfans.com/tiffany.afk/c6';
   var gate = document.getElementById('gate');
-  function openGate(e){ e.preventDefault(); gate.hidden = false; }
+  var built = false;
+  function openGate(e){
+    e.preventDefault();
+    if (!built) {
+      gate.innerHTML =
+        '<div class="gate-box">' +
+          '<p class="gate-title">One last thing</p>' +
+          '<p class="gate-text">This page is for adults only. Are you 18 or older?</p>' +
+          '<div class="gate-actions">' +
+            '<button class="gate-yes" data-umami-event="click-onlyfans" onclick="enter()">Yes, I&#39;m 18+</button>' +
+            '<button class="gate-no" data-umami-event="gate-no" onclick="closeGate()">Take me back</button>' +
+          '</div>' +
+        '</div>';
+      built = true;
+    }
+    gate.hidden = false;
+  }
   function closeGate(){ gate.hidden = true; }
   function enter(){ window.location.href = OF_URL; }
   gate.addEventListener('click', function(e){ if (e.target === gate) closeGate(); });

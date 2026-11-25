@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0505">
+<script>
+  /* Reopened in the real browser after the tip: skip the page, go straight to OF */
+  if (/[?&]go=1/.test(location.search) && !/Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Bytedance|Snapchat|Twitter/i.test(navigator.userAgent || '')) {
+    document.documentElement.style.cssText = 'visibility:hidden;background:#070404';
+    location.replace('https://onlyfans.com/tiffany.afk/c6');
+  }
+</script>
 <title>Tiffany</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,10 +246,6 @@
   }
   gate.addEventListener('click', function(e){ if (e.target === gate) closeGate(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeGate(); });
-  /* Reopened in the real browser after the tip: go straight to OF */
-  if (/[?&]go=1/.test(location.search) && !/Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Bytedance|Snapchat|Twitter/i.test(navigator.userAgent || '')) {
-    window.location.replace(OF_URL);
-  }
 </script>
 </body>
 </html>
